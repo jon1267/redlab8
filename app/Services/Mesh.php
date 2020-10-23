@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
  * и строки если человек числится в отделе стоит "псица". (см ПДФ в папке work)
  * Чтоб понять этот код см в App\Models\Staff метод getPeoplesPositions()
  * Токо там все тупо работает в расчете на 4 отдела. Тут парам. $positionsCount
+ * (!) глючит при неск. удалениях отделов. Наверное не p1p2p3p4, а  p_id ???
  */
 class Mesh
 {
