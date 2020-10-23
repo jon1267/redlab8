@@ -18,12 +18,15 @@
             @foreach ($peoples as $people)
                 <tr>
                     <td>{{ $people->fio }}</td>
-                    @if($people->p1)
-                            <td><span>&#10003;</span></td>
-                        @else
-                            <td></td>
-                    @endif
-                    @if($people->p2)
+                    @for($i=1; $i <= $positionsCount; $i++)
+                        {{-- это  {'p'.$i}  формирует поля типа $people->p1, $people->p2, ,,, $people->p$i --}}
+                        @if($people->{'p'.$i} )
+                                <td><span>&#10003;</span></td>
+                            @else
+                                <td></td>
+                        @endif
+                    @endfor
+                    {{--@if($people->p2)
                         <td><span>&#10003;</span></td>
                     @else
                         <td></td>
@@ -37,7 +40,7 @@
                         <td><span>&#10003;</span></td>
                     @else
                         <td></td>
-                    @endif
+                    @endif--}}
 
                 </tr>
             @endforeach
