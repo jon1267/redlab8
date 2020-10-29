@@ -13,15 +13,13 @@ class SiteController extends Controller
 
     public function __construct(Mesh $mesh)
     {
-        //$this->staff = $staff;
         $this->mesh = $mesh;
     }
 
     public function index()
     {
         $positions = Position::all();
-        //$peoples = $this->staff->getPeoplesPositions($positions->count());
-        $peoples = $this->mesh->getPeoplesPositions($positions->count());
+        $peoples = $this->mesh->getPeoplesPositions();
         //dd($peoples, $positions, $positions->count());
 
         return view('site.index', [
